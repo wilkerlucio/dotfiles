@@ -1,0 +1,7 @@
+[user]
+	name = Wilker Lucio
+	email = wilkerlucio@gmail.com
+[push]
+	default = matching
+[color]
+	diff = auto
