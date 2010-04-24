@@ -2,6 +2,8 @@
 	name = Wilker Lucio
 	email = wilkerlucio@gmail.com
 [push]
-	default = matching
+	default = tracking
 [color]
 	diff = auto
+[github]
+	user = wilkerlucio
