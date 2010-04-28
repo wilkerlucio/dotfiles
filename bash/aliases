@@ -45,3 +45,12 @@ alias sc="./script/console"
 function rt() {
   rails $* -m "http://github.com/wilkerlucio/rails_template/raw/master/template.rb"
 }
+
+# Restart Nginx
+function ngr() {
+  sudo launchctl stop net.nginx
+  echo "Stopping Nginx..."
+  sleep 2
+  echo "Starting Nginx..."
+  sudo launchctl start net.nginx
+}
