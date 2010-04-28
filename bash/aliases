@@ -39,6 +39,7 @@ alias rp="touch tmp/restart.txt"
 alias tl="tail -f log/*.log"
 alias sp="RAILS_ENV=test spec"
 alias ccp="RAILS_ENV=test script/cucumber"
+alias sc="./script/console"
 
 # Create new app from template
 function rt() {
