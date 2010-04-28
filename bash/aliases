@@ -2,6 +2,7 @@
 alias reload='source ~/dotfiles/bash/aliases'
 alias ea='mate -w ~/dotfiles/bash/aliases && reload' # Edit aliases
 alias ee="mate ~/dotfiles/bash/env"
+function d { cd ~/Development/$1; }
 
 # Tar
 alias tx="tar -xvzf"

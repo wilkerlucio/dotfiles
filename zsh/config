@@ -8,6 +8,13 @@ PROMPT='
 # Set RPROMPT to have info show up on the right, too.
 
 #############################
+# Functions
+
+fpath=(~/dotfiles/zsh/functions $fpath)
+
+autoload -U ~/dotfiles/zsh/functions/*(:t)
+
+#############################
 # Other Options
 
 # setopt PRINT_EXIT_VALUE
