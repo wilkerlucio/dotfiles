@@ -46,6 +46,9 @@ alias sp="RAILS_ENV=test spec"
 alias ccp="RAILS_ENV=test script/cucumber"
 alias sc="./script/console"
 
+# Coffee
+alias cw="coffee --no-wrap -cw"
+
 # Create new app from template
 function rt() {
   rails $* -m "http://github.com/wilkerlucio/rails_template/raw/master/template.rb"
