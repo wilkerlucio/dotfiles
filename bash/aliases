@@ -22,6 +22,10 @@ alias gd="git diff"
 alias gl="git pull"
 alias gp="git push"
 
+function gta() {
+  git tag -a "v$1" -m "tagging version $1"
+}
+
 # Setup a tracking branch from [remote] [branch_name]
 function gbt() {
   git checkout -b $2 -t $1/$2
