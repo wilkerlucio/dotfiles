@@ -54,6 +54,9 @@ function rt() {
   rails $* -m "http://github.com/wilkerlucio/rails_template/raw/master/template.rb"
 }
 
+# Open Nginx configuration
+alias ngc="mate -w /opt/nginx/conf/nginx.conf && ngr"
+
 # Restart Nginx
 function ngr() {
   sudo launchctl stop net.nginx
