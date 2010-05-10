@@ -1,2 +1,2 @@
 #compdef d
-_files -W ~/Development -/
+_files -W /var/www -/

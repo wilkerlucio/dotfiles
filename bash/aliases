@@ -3,8 +3,7 @@ alias tw='watchr autotest.watchr'
 alias reload='source ~/dotfiles/bash/aliases'
 alias ea="$EDITOR ~/dotfiles/bash/aliases && reload" # Edit aliases
 alias ee="$EDITOR ~/dotfiles/bash/env"
-alias mg="mate . && gitx"
-function d { cd ~/Development/$1; }
+function d { cd /var/www/$1; }
 
 # Tar
 alias tx="tar -xvzf"
@@ -25,7 +24,7 @@ alias gl="git pull --rebase"
 alias gp="git push"
 
 function git_track() {
-	echo "\n[branch \"$1\"]\n\tremote = origin\n\tmerge = refs/heads/$1" >> ".git/config"
+  echo "\n[branch \"$1\"]\n\tremote = origin\n\tmerge = refs/heads/$1" >> ".git/config"
 }
 
 function gta() {
@@ -43,13 +42,13 @@ function gbto() {
 }
 
 function git_tmbundle() {
-	git remote add "$1_remote" $2
-	git fetch "$1_remote"
-	git checkout -b "$1_branch" "$1_remote/master"
-	git push origin "$1_branch"
-	git checkout master
-	git read-tree --prefix="$3.tmbundle/" -u "$1_branch"
-	git commit -m "added $3 bundles"
+  git remote add "$1_remote" $2
+  git fetch "$1_remote"
+  git checkout -b "$1_branch" "$1_remote/master"
+  git push origin "$1_branch"
+  git checkout master
+  git read-tree --prefix="$3.tmbundle/" -u "$1_branch"
+  git commit -m "added $3 bundles"
 }
 
 # Ruby
@@ -90,6 +89,6 @@ alias ngc="$EDITOR /opt/nginx/conf/nginx.conf && ngr"
 
 # Restart Nginx
 function ngr() {
-	sudo /opt/nginx/sbin/nginx -s stop
-	sudo /opt/nginx/sbin/nginx
+  sudo /opt/nginx/sbin/nginx -s stop
+  sudo /opt/nginx/sbin/nginx
 }
