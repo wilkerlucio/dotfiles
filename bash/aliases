@@ -59,5 +59,9 @@ alias ngc="$EDITOR /opt/nginx/conf/nginx.conf && ngr"
 
 # Restart Nginx
 function ngr() {
-  sudo /etc/init.d/nginx restart
+  sudo launchctl stop net.nginx
+  echo "Stopping Nginx..."
+  sleep 2
+  echo "Starting Nginx..."
+  sudo launchctl start net.nginx
 }
