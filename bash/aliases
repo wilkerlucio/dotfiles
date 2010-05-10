@@ -85,7 +85,7 @@ function rt() {
 }
 
 # Open Nginx configuration
-alias ngc="$EDITOR /opt/nginx/conf/nginx.conf && ngr"
+alias ngc="sudo $EDITOR /opt/nginx/conf/nginx.conf && ngr"
 
 # Restart Nginx
 function ngr() {
