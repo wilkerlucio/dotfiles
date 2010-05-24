@@ -45,6 +45,16 @@ alias tl="tail -f log/*.log"
 alias sp="RAILS_ENV=test spec"
 alias ccp="RAILS_ENV=test script/cucumber"
 alias sc="./script/console"
+function dg { cd /Library/Ruby/Gems/1.8/gems/$1; }
+
+# LaunchD
+function lrs() {
+  sudo launchctl stop $1
+  echo "Stopping $1..."
+  sleep 2
+  echo "Starting $1..."
+  sudo launchctl start $1
+}
 
 # Coffee
 alias cw="coffee --no-wrap -cw"
@@ -58,10 +68,4 @@ function rt() {
 alias ngc="$EDITOR /opt/nginx/conf/nginx.conf && ngr"
 
 # Restart Nginx
-function ngr() {
-  sudo launchctl stop net.nginx
-  echo "Stopping Nginx..."
-  sleep 2
-  echo "Starting Nginx..."
-  sudo launchctl start net.nginx
-}
+alias ngr="lrs net.nginx"
