@@ -2,7 +2,7 @@ autoload -U colors
 colors
 setopt prompt_subst
 PROMPT='
-%~ %{$fg_bold[green]%}$(vcprompt)
+%~ %{$fg_bold[green]%}[$(~/.rvm/bin/rvm-prompt)] $(vcprompt)
 > %{$reset_color%}'
 
 # Set RPROMPT to have info show up on the right, too.
