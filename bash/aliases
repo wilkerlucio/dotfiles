@@ -37,14 +37,17 @@ function gbto() {
 }
 
 # Ruby
-alias r="rake"
+alias rk="rake"
 
 # Rails
+alias r="rails"
 alias rp="touch tmp/restart.txt"
 alias tl="tail -f log/*.log"
-alias sp="RAILS_ENV=test spec"
-alias ccp="RAILS_ENV=test script/cucumber"
+alias rsp="RAILS_ENV=test spec -c"
+alias rsp3="RAILS_ENV=test rspec"
+alias rcc="RAILS_ENV=test cucumber"
 alias sc="./script/console"
+alias ss="./script/server"
 function dg { cd /Library/Ruby/Gems/1.8/gems/$1; }
 
 # LaunchD
