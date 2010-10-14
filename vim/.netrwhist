@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/usr/lib/ruby/gems/1.8/gems/activemerchant-1.5.1/lib/active_merchant/billing/gateways/paypal_adaptive_payments'
 let g:netrw_dirhist_2='/home/wilker/Development/coupon/vendor/gems/activemerchant-1.4.2/lib/active_merchant/billing/gateways/paypal_adaptive_payments'
 let g:netrw_dirhist_3='/home/wilker/Development/paypal_adaptive_gateway'
+let g:netrw_dirhist_4='/Users/wilkersilva/Development/seogadget'
