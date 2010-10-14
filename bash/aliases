@@ -1,7 +1,9 @@
 # Utility
+alias tw='watchr autotest.watchr'
 alias reload='source ~/dotfiles/bash/aliases'
 alias ea="$EDITOR ~/dotfiles/bash/aliases && reload" # Edit aliases
 alias ee="$EDITOR ~/dotfiles/bash/env"
+alias mg="mate . && gitx"
 function d { cd ~/Development/$1; }
 
 # Tar
@@ -22,6 +24,10 @@ alias gd="git diff"
 alias gl="git pull --rebase"
 alias gp="git push"
 
+function git_track() {
+	echo "\n[branch \"$1\"]\n\tremote = origin\n\tmerge = refs/heads/$1" >> ".git/config"
+}
+
 function gta() {
   git tag -a "v$1" -m "tagging version $1"
 }
@@ -36,15 +42,27 @@ function gbto() {
   git checkout -b $1 -t origin/$1
 }
 
+function git_tmbundle() {
+	git remote add "$1_remote" $2
+	git fetch "$1_remote"
+	git checkout -b "$1_branch" "$1_remote/master"
+	git push origin "$1_branch"
+	git checkout master
+	git read-tree --prefix="$3.tmbundle/" -u "$1_branch"
+	git commit -m "added $3 bundles"
+}
+
 # Ruby
+alias be="bundle exec"
 alias rk="rake"
+alias bp="bluepill --no-privileged"
+alias it="RAILS_ENV=test infinity_test"
 
 # Rails
 alias r="rails"
 alias rp="touch tmp/restart.txt"
 alias tl="tail -f log/*.log"
-alias rsp="RAILS_ENV=test spec -c"
-alias rsp3="RAILS_ENV=test rspec"
+alias rt="RAILS_ENV=test bundle exec rspec"
 alias rcc="RAILS_ENV=test cucumber"
 alias sc="./script/console"
 alias ss="./script/server"
@@ -71,4 +89,7 @@ function rt() {
 alias ngc="$EDITOR /opt/nginx/conf/nginx.conf && ngr"
 
 # Restart Nginx
-alias ngr="lrs net.nginx"
+function ngr() {
+	sudo /opt/nginx/sbin/nginx -s stop
+	sudo /opt/nginx/sbin/nginx
+}
