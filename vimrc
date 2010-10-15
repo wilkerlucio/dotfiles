@@ -50,7 +50,7 @@ set expandtab                    " Use spaces instead of tabs
 
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 " Remap leader
 let mapleader=','
@@ -90,10 +90,16 @@ vnoremap ; :
 " autocmd FileType ruby setlocal foldmethod=syntax
 " autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 
+" Configuring tabs for file types
+" autocmd FileType html setlocal noexpandtab
+" autocmd FileType eruby setlocal noexpandtab
+" autocmd FileType javascript setlocal noexpandtab
+" autocmd FileType php setlocal noexpandtab
+
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 " Code cleanup
 autocmd BufWritePre * :%s/\s\+$//e
-autocmd BufWritePre * :retab
+" autocmd BufWritePre * :retab
 
