@@ -2,6 +2,7 @@
 " Copy or symlink to ~/.vimrc or ~/_vimrc.
 
 set nocompatible                  " Must come first because it changes other options.
+autocmd BufWritePost .vimrc source ~/.vimrc " Reload vim configuration automatic
 
 silent! call pathogen#runtime_append_all_bundles()
 
@@ -40,6 +41,8 @@ set nobackup                      " Don't make a backup before overwriting a fil
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
+set encoding=utf-8 fileencodings=utf-8,ucs-bom,cp936 fileencoding=utf-8 termencoding=utf-8 " Encoding
+
 " UNCOMMENT TO USE
 set tabstop=2                    " Global tab width.
 set shiftwidth=2                 " And again, related.
@@ -49,33 +52,39 @@ set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
+" Remap leader
+let mapleader=','
+
 " Or use vividchalk
 colorscheme Tubster
 
 " show hidden characters
-set list
+set nolist
 set listchars=tab:▸\ ,eol:¬
 
 " Tab mappings.
-map <leader>tt :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>to :tabonly<cr>
-map <leader>tn :tabnext<cr>
-map <leader>tp :tabprevious<cr>
-map <leader>tf :tabfirst<cr>
-map <leader>tl :tablast<cr>
-map <leader>tm :tabmove
+map <leader>tt ;tabnew<cr>
+map <leader>te ;tabedit
+map <leader>tc ;tabclose<cr>
+map <leader>to ;tabonly<cr>
+map <leader>tn ;tabnext<cr>
+map <leader>tp ;tabprevious<cr>
+map <leader>tf ;tabfirst<cr>
+map <leader>tl ;tablast<cr>
+map <leader>tm ;tabmove
+
+" Buffer Explorer
+map <leader>bb ;BufExplorer<cr>
 
 " Uncomment to use Jamis Buck's file opening plugin
 "map <Leader>t :FuzzyFinderTextMate<Enter>
 
 " Controversial...swap colon and semicolon for easier commands
 nnoremap ; :
-nnoremap : ;
-
+" nnoremap : ;
+"
 vnoremap ; :
-vnoremap : ;
+" vnoremap : ;
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax
@@ -84,4 +93,7 @@ vnoremap : ;
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
+" Code cleanup
+autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :retab
 
