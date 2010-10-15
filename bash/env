@@ -1,4 +1,4 @@
-export EDITOR="mate -w"
+export EDITOR="vim"
 export PATH=~/bin:$PATH
 export RAILS_ENV=development
 export NODE_SERVER=localhost:8080
