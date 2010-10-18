@@ -76,6 +76,9 @@ set listchars=tab:▸\ ,eol:¬
 " Buffer Explorer
 map <leader>bb ;BufExplorer<cr>
 
+" CoffeeScript configuration
+let coffee_no_trailing_space_error = 1
+
 " Uncomment to use Jamis Buck's file opening plugin
 "map <Leader>t :FuzzyFinderTextMate<Enter>
 
