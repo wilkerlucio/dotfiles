@@ -107,3 +107,6 @@ autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 autocmd BufWritePre * :%s/\s\+$//e
 " autocmd BufWritePre * :retab
 
+" Taglist configuration
+let Tlist_Ctags_Cmd = '/usr/local/Cellar/ctags/5.8/bin/ctags'
+
