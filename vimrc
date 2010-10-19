@@ -92,6 +92,7 @@ vnoremap ; :
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax
 " autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
+autocmd FileType java setlocal shiftwidth=4 tabstop=4
 
 " Configuring tabs for file types
 " autocmd FileType html setlocal noexpandtab
