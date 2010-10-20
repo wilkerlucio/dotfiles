@@ -33,6 +33,9 @@ set hlsearch                      " Highlight matches.
 set wrap                          " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
 
+set autoread                      " automatic reload file if it's changed
+set nowrap												" don't wrap lines
+
 " set title                       " Set the terminal's title
 
 set visualbell                    " No beeping.
