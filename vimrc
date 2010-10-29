@@ -113,3 +113,5 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Taglist configuration
 let Tlist_Ctags_Cmd = '/usr/local/Cellar/ctags/5.8/bin/ctags'
 
+" Zen Coding
+let g:user_zen_expandabbr_key = '<c-e>'
