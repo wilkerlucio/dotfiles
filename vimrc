@@ -30,11 +30,10 @@ set ruler                         " Show cursor position.
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 
-set wrap                          " Turn on line wrapping.
+set nowrap                        " Turn off line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
 
 set autoread                      " automatic reload file if it's changed
-set nowrap												" don't wrap lines
 
 " set title                       " Set the terminal's title
 
@@ -44,7 +43,7 @@ set nobackup                      " Don't make a backup before overwriting a fil
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
-set encoding=utf-8 fileencodings=utf-8,macroman,latin1,ucs-bom,cp936 fileencoding=utf-8 termencoding=utf-8 " Encoding
+set encoding=utf-8 fileencodings=utf-8,latin1,ucs-bom,cp936 fileencoding=utf-8 termencoding=utf-8 " Encoding
 
 " UNCOMMENT TO USE
 set tabstop=2                    " Global tab width.
