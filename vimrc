@@ -85,11 +85,11 @@ let coffee_no_trailing_space_error = 1
 "map <Leader>t :FuzzyFinderTextMate<Enter>
 
 " Controversial...swap colon and semicolon for easier commands
+nnoremap \ ;
 nnoremap ; :
-" nnoremap : ;
 "
+vnoremap \ ;
 vnoremap ; :
-" vnoremap : ;
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax
