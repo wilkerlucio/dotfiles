@@ -63,9 +63,11 @@ alias r="rails"
 alias rp="touch tmp/restart.txt"
 alias tl="tail -f log/*.log"
 alias rt="clear && RAILS_ENV=test bundle exec rspec"
+alias rts="clear && RAILS_ENV=test bundle exec spec"
 alias rcc="RAILS_ENV=test cucumber"
 alias sc="./script/console"
 alias ss="./script/server"
+alias pas="passenger start"
 function dg { cd /Library/Ruby/Gems/1.8/gems/$1; }
 
 # LaunchD
