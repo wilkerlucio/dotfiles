@@ -64,6 +64,9 @@ colorscheme Tubster
 set nolist
 set listchars=tab:▸\ ,eol:¬
 
+" highlight current line
+set cursorline
+
 " Tab mappings.
 " map <leader>tt ;tabnew<cr>
 " map <leader>te ;tabedit
