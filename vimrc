@@ -113,6 +113,9 @@ autocmd BufNewFile,BufRead *.erb, setfiletype eruby
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre * :retab
 
+" Mapping <C-Enter>
+inoremap <C-Enter> <Esc>a<CR><Esc>O
+
 " Taglist configuration
 let Tlist_Ctags_Cmd = '/usr/local/Cellar/ctags/5.8/bin/ctags'
 
