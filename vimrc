@@ -95,6 +95,10 @@ autocmd FileType xhtml,xml so ~/.vim/bundle/html_autoclosetag/ftplugin/html_auto
 autocmd FileType java setlocal shiftwidth=4 tabstop=4
 autocmd FileType python setlocal shiftwidth=4 tabstop=4
 autocmd FileType yaml setlocal autoindent
+autocmd FileType xhtml,xml,html,eruby setlocal shiftwidth=2 tabstop=2 noexpandtab
+
+autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
+autocmd BufNewFile,BufRead *.erb, setfiletype eruby
 
 " Configuring tabs for file types
 " autocmd FileType html setlocal noexpandtab
