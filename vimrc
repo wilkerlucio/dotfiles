@@ -1,6 +1,3 @@
-" Example Vim configuration.
-" Copy or symlink to ~/.vimrc or ~/_vimrc.
-
 set nocompatible                  " Must come first because it changes other options.
 autocmd BufWritePost .vimrc source ~/.vimrc " Reload vim configuration automatic
 
@@ -35,7 +32,7 @@ set scrolloff=3                   " Show 3 lines of context around the cursor.
 
 set autoread                      " automatic reload file if it's changed
 
-" set title                       " Set the terminal's title
+set title                         " Set the terminal's title
 
 set visualbell                    " No beeping.
 
@@ -45,12 +42,12 @@ set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
 set encoding=utf-8 fileencodings=utf-8,latin1,ucs-bom,cp936 fileencoding=utf-8 termencoding=utf-8 " Encoding
 
-" UNCOMMENT TO USE
 set tabstop=2                    " Global tab width.
 set shiftwidth=2                 " And again, related.
 set expandtab                    " Use spaces instead of tabs
 
 set laststatus=2                  " Show the status line all the time
+
 " Useful status information at bottom of screen
 set statusline=[%n] " buffer number
 set statusline+=\ %<%.99f\  " file name
@@ -66,11 +63,11 @@ set statusline+=%= " start right section
 set statusline+=%-16(\ %l,%c-%v\ %) " cursor position
 set statusline+=%P " scroll percentual
 
-" Remap leader
+" remap leader
 let mapleader=','
 
-" Or use vividchalk
-colorscheme Tubster
+" set color scheme
+colorscheme tubster
 
 " show hidden characters
 set nolist
@@ -79,30 +76,15 @@ set listchars=tab:▸\ ,eol:¬
 " highlight current line
 set cursorline
 
-" Tab mappings.
-" map <leader>tt ;tabnew<cr>
-" map <leader>te ;tabedit
-" map <leader>tc ;tabclose<cr>
-" map <leader>to ;tabonly<cr>
-" map <leader>tn ;tabnext<cr>
-" map <leader>tp ;tabprevious<cr>
-" map <leader>tf ;tabfirst<cr>
-" map <leader>tl ;tablast<cr>
-" map <leader>tm ;tabmove
-
 " Buffer Explorer
 map <leader>bb ;BufExplorer<cr>
 
 " CoffeeScript configuration
 let coffee_no_trailing_space_error = 1
 
-" Uncomment to use Jamis Buck's file opening plugin
-"map <Leader>t :FuzzyFinderTextMate<Enter>
-
 " Controversial...swap colon and semicolon for easier commands
 nnoremap \ ;
 nnoremap ; :
-"
 vnoremap \ ;
 vnoremap ; :
 
@@ -121,7 +103,7 @@ autocmd FileType yaml setlocal autoindent
 " autocmd FileType php setlocal noexpandtab
 
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
-autocmd BufNewFile,BufRead *_spec.rb compiler rspec
+" autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 " Code cleanup
 autocmd BufWritePre * :%s/\s\+$//e
