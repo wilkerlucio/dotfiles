@@ -52,7 +52,19 @@ set expandtab                    " Use spaces instead of tabs
 
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+set statusline=[%n] " buffer number
+set statusline+=\ %<%.99f\  " file name
+set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%* " syntax errors
+set statusline+=%h " help buffer flag
+set statusline+=%w " preview window flag
+set statusline+=%m " modified flag
+set statusline+=%r " read-only flag
+set statusline+=%y " file type
+set statusline+=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\"} "file encoding
+set statusline+=%{fugitive#statusline()} " fugitive info, for repository information
+set statusline+=%= " start right section
+set statusline+=%-16(\ %l,%c-%v\ %) " cursor position
+set statusline+=%P " scroll percentual
 
 " Remap leader
 let mapleader=','
@@ -120,3 +132,6 @@ let Tlist_Ctags_Cmd = '/usr/local/Cellar/ctags/5.8/bin/ctags'
 
 " Zen Coding
 let g:user_zen_expandabbr_key = '<c-e>'
+
+" Syntastic
+let g:syntastic_enable_signs = 1
