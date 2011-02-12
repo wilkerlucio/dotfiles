@@ -1,67 +1,72 @@
-set nocompatible                  " Must come first because it changes other options.
+set nocompatible                            " Must come first because it changes other options.
 autocmd BufWritePost .vimrc source ~/.vimrc " Reload vim configuration automatic
 
 silent! call pathogen#runtime_append_all_bundles()
 
-syntax enable                     " Turn on syntax highlighting.
-filetype plugin indent on         " Turn on file type detection.
+syntax enable                                " Turn on syntax highlighting.
+filetype plugin indent on                    " Turn on file type detection.
 
-runtime macros/matchit.vim        " Load the matchit plugin.
+runtime macros/matchit.vim                   " Load the matchit plugin.
 
-set showcmd                       " Display incomplete commands.
-set showmode                      " Display the mode you're in.
+set showcmd                                  " Display incomplete commands.
+set showmode                                 " Display the mode you're in.
 
-set backspace=indent,eol,start    " Intuitive backspacing.
+set backspace=indent,eol,start               " Intuitive backspacing.
 
-set hidden                        " Handle multiple buffers better.
+set hidden                                   " Handle multiple buffers better.
 
-set wildmenu                      " Enhanced command line completion.
-set wildmode=list:longest         " Complete files like a shell.
+set wildmenu                                 " Enhanced command line completion.
+set wildmode=list:longest                    " Complete files like a shell.
 
-set ignorecase                    " Case-insensitive searching.
-set smartcase                     " But case-sensitive if expression contains a capital letter.
+set ignorecase                               " Case-insensitive searching.
+set smartcase                                " But case-sensitive if expression contains a capital letter.
 
-set number                        " Show line numbers.
-set ruler                         " Show cursor position.
+set number                                   " Show line numbers.
+set ruler                                    " Show cursor position.
 
-set incsearch                     " Highlight matches as you type.
-set hlsearch                      " Highlight matches.
+set incsearch                                " Highlight matches as you type.
+set hlsearch                                 " Highlight matches.
 
-set nowrap                        " Turn off line wrapping.
-set scrolloff=3                   " Show 3 lines of context around the cursor.
+set nowrap                                   " Turn off line wrapping.
+set scrolloff=3                              " Show 3 lines of context around the cursor.
 
-set autoread                      " automatic reload file if it's changed
+set nofoldenable                             " Disable folding
 
-set title                         " Set the terminal's title
+set autoread                                 " automatic reload file if it's changed
 
-set visualbell                    " No beeping.
+set title                                    " Set the terminal's title
 
-set nobackup                      " Don't make a backup before overwriting a file.
-set nowritebackup                 " And again.
-set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
+set visualbell                               " No beeping.
 
-set encoding=utf-8 fileencodings=utf-8,latin1,ucs-bom,cp936 fileencoding=utf-8 termencoding=utf-8 " Encoding
+set nobackup                                 " Don't make a backup before overwriting a file.
+set nowritebackup                            " And again.
+set directory=$HOME/.vim/tmp//,.             " Keep swap files in one location
 
-set tabstop=2                    " Global tab width.
-set shiftwidth=2                 " And again, related.
-set expandtab                    " Use spaces instead of tabs
+set encoding=utf-8                           " output encoding
+set fileencodings=utf-8,latin1,ucs-bom,cp936 " file encoding set order to load
+set fileencoding=utf-8                       " file encoding
+set termencoding=utf-8                       " terminal encoding
 
-set laststatus=2                  " Show the status line all the time
+set tabstop=2                                " Global tab width.
+set shiftwidth=2                             " And again, related.
+set expandtab                                " Use spaces instead of tabs
+
+set laststatus=2                             " Show the status line all the time
 
 " Useful status information at bottom of screen
-set statusline=[%n] " buffer number
-set statusline+=\ %<%.99f\  " file name
-set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%* " syntax errors
-set statusline+=%h " help buffer flag
-set statusline+=%w " preview window flag
-set statusline+=%m " modified flag
-set statusline+=%r " read-only flag
-set statusline+=%y " file type
+set statusline=[%n]                                                                                  " buffer number
+set statusline+=\ %<%.99f\                                                                           " file name
+set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*                                          " syntax errors
+set statusline+=%h                                                                                   " help buffer flag
+set statusline+=%w                                                                                   " preview window flag
+set statusline+=%m                                                                                   " modified flag
+set statusline+=%r                                                                                   " read-only flag
+set statusline+=%y                                                                                   " file type
 set statusline+=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\"} "file encoding
-set statusline+=%{fugitive#statusline()} " fugitive info, for repository information
-set statusline+=%= " start right section
-set statusline+=%-16(\ %l,%c-%v\ %) " cursor position
-set statusline+=%P " scroll percentual
+set statusline+=%{fugitive#statusline()}                                                             " fugitive info, for repository information
+set statusline+=%=                                                                                   " start right section
+set statusline+=%-16(\ %l,%c-%v\ %)                                                                  " cursor position
+set statusline+=%P                                                                                   " scroll percentual
 
 " remap leader
 let mapleader=','
@@ -98,7 +103,8 @@ autocmd FileType yaml setlocal autoindent
 autocmd FileType xhtml,xml,html,eruby setlocal shiftwidth=2 tabstop=2 noexpandtab
 
 autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
-autocmd BufNewFile,BufRead *.erb, setfiletype eruby
+autocmd BufNewFile,BufRead *.erb setfiletype eruby
+autocmd BufNewFile,BufRead Gemfile setfiletype ruby
 
 " Configuring tabs for file types
 " autocmd FileType html setlocal noexpandtab
@@ -125,13 +131,19 @@ let g:user_zen_expandabbr_key = '<c-e>'
 " Syntastic
 let g:syntastic_enable_signs = 1
 
+" Map for hide search
+nmap <Leader>h :noh<CR>
+vmap <Leader>h :noh<CR>
+
 " Tabularize
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a> :Tabularize /=><CR>
 vmap <Leader>a> :Tabularize /=><CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
+nmap <Leader>a: :Tabularize /:\zs/l0l1<CR>
+vmap <Leader>a: :Tabularize /:\zs/l0l1<CR>
+nmap <Leader>a, :Tabularize /,\zs/l0l1<CR>
+vmap <Leader>a, :Tabularize /,\zs/l0l1<CR>
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
