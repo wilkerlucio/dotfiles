@@ -81,9 +81,6 @@ set listchars=tab:▸\ ,eol:¬
 " highlight current line
 set cursorline
 
-" Buffer Explorer
-map <leader>bb ;BufExplorer<cr>
-
 " CoffeeScript configuration
 let coffee_no_trailing_space_error = 1
 
