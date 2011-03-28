@@ -40,6 +40,7 @@ set visualbell                               " No beeping.
 
 set nobackup                                 " Don't make a backup before overwriting a file.
 set nowritebackup                            " And again.
+set noswapfile                               " Disable swap files
 set directory=$HOME/.vim/tmp//,.             " Keep swap files in one location
 
 set encoding=utf-8                           " output encoding
@@ -131,6 +132,14 @@ let g:syntastic_enable_signs = 1
 " Map for hide search
 nmap <Leader>h :noh<CR>
 vmap <Leader>h :noh<CR>
+
+" Map for CommandT
+nmap <Leader>t :CommandT<CR>
+vmap <Leader>t :CommandT<CR>
+nmap <Leader>f :CommandTFlush<CR>
+vmap <Leader>f :CommandTFlush<CR>
+nmap <Leader>b ;CommandTBuffer<CR>
+
 
 " Tabularize
 nmap <Leader>a= :Tabularize /=<CR>
