@@ -123,9 +123,6 @@ inoremap <C-Enter> <Esc>a<CR><Esc>O
 " Taglist configuration
 let Tlist_Ctags_Cmd = '/usr/local/Cellar/ctags/5.8/bin/ctags'
 
-" Zen Coding
-let g:user_zen_expandabbr_key = '<c-e>'
-
 " Syntastic
 let g:syntastic_enable_signs = 1
 
@@ -140,6 +137,13 @@ nmap <Leader>f :CommandTFlush<CR>
 vmap <Leader>f :CommandTFlush<CR>
 nmap <Leader>b ;CommandTBuffer<CR>
 
+" ACP configuration
+let g:acp_behaviorRubyOmniMethodLength = -1
+let g:acp_behaviorRubyOmniSymbolLength = -1
+let g:acp_behaviorPythonOmniLength     = -1
+let g:acp_behaviorPerlOmniLength       = -1
+let g:acp_behaviorXmlOmniLength        = -1
+let g:acp_behaviorHtmlOmniLength       = -1
 
 " Tabularize
 nmap <Leader>a= :Tabularize /=<CR>
