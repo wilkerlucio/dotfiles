@@ -12,6 +12,16 @@ snippet ife
 	<% else %>
 		${3}
 	<% end %>
+snippet unless
+	<% unless ${1:condition} %>
+		${2}
+	<% end %>
+snippet unlesse
+	<% unless ${1:condition} %>
+		${2}
+	<% else %>
+		${3}
+	<% end %>
 snippet each
 	<% ${1:collection}.each do |${2:obj}|
 		${3}
