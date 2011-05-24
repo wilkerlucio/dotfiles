@@ -41,7 +41,7 @@ set visualbell                               " No beeping.
 set nobackup                                 " Don't make a backup before overwriting a file.
 set nowritebackup                            " And again.
 set noswapfile                               " Disable swap files
-set directory=$HOME/.vim/tmp//,.             " Keep swap files in one location
+set directory=$HOME/.vim/tmp                 " Keep swap files in one location
 
 set encoding=utf-8                           " output encoding
 set fileencodings=utf-8,latin1,ucs-bom,cp936 " file encoding set order to load
