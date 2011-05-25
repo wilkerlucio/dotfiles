@@ -41,7 +41,7 @@ set visualbell                               " No beeping.
 set nobackup                                 " Don't make a backup before overwriting a file.
 set nowritebackup                            " And again.
 set noswapfile                               " Disable swap files
-set directory=$HOME/.vim/tmp                 " Keep swap files in one location
+set directory=$HOME/.vim/tmp/,.                 " Keep swap files in one location
 
 set encoding=utf-8                           " output encoding
 set fileencodings=utf-8,latin1,ucs-bom,cp936 " file encoding set order to load
@@ -103,6 +103,9 @@ autocmd FileType xhtml,xml,html,eruby setlocal shiftwidth=2 tabstop=2 noexpandta
 autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
 autocmd BufNewFile,BufRead *.erb setfiletype eruby
 autocmd BufNewFile,BufRead Gemfile setfiletype ruby
+
+" auto clean Fugitive buffers
+autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " Configuring tabs for file types
 " autocmd FileType html setlocal noexpandtab
