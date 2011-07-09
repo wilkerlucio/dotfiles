@@ -102,7 +102,7 @@ autocmd FileType xhtml,xml,html,eruby setlocal shiftwidth=2 tabstop=2 noexpandta
 
 autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
 autocmd BufNewFile,BufRead *.erb setfiletype eruby
-autocmd BufNewFile,BufRead Gemfile setfiletype ruby
+autocmd BufNewFile,BufRead Gemfile,*.prawn,config.ru setfiletype ruby
 
 " auto clean Fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
