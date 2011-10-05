@@ -74,3 +74,30 @@ snippet get
 # Get Element
 snippet gett
 	getElementBy${1:Id}('${2}')${3}
+# Greasemonkey jQuery
+snippet gscript
+	runScript = function() {
+		${1:/* create the script here */}
+	};
+
+	if (typeof unsafeWindow.jQuery == 'undefined') {
+		// load jquery and run when its loaded
+		var GM_JQ = document.createElement('script');
+		GM_JQ.src = 'http://code.jquery.com/jquery-latest.min.js';
+		GM_JQ.type = 'text/javascript';
+		document.getElementsByTagName('head')[0].appendChild(GM_JQ);
+
+		GM_wait = function() {
+			if(typeof unsafeWindow.jQuery == 'undefined') {
+				window.setTimeout(GM_wait,100);
+			} else {
+				$ = unsafeWindow.jQuery;
+				runScript();
+			}
+		}
+
+		GM_wait();
+	} else {
+		$ = unsafeWindow.jQuery;
+		runScript();
+	}
