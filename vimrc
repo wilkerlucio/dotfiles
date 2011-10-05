@@ -71,6 +71,7 @@ set statusline+=%P                                                              
 
 " remap leader
 let mapleader=','
+let maplocalleader='-'
 
 " set color scheme
 colorscheme tubster
@@ -86,9 +87,7 @@ set cursorline
 let coffee_no_trailing_space_error = 1
 
 " Controversial...swap colon and semicolon for easier commands
-nnoremap \ ;
 nnoremap ; :
-vnoremap \ ;
 vnoremap ; :
 
 " Automatic fold settings for specific files. Uncomment to use.
@@ -102,6 +101,7 @@ autocmd FileType xhtml,xml,html,eruby setlocal shiftwidth=2 tabstop=2 noexpandta
 
 autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
 autocmd BufNewFile,BufRead *.erb setfiletype eruby
+autocmd BufNewFile,BufRead *.jss setfiletype css
 autocmd BufNewFile,BufRead Gemfile,*.prawn,config.ru setfiletype ruby
 
 " auto clean Fugitive buffers
