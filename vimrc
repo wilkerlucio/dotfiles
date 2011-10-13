@@ -57,7 +57,6 @@ set laststatus=2                             " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]                                                                                  " buffer number
 set statusline+=\ %<%.99f\                                                                           " file name
-set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%*                                          " syntax errors
 set statusline+=%h                                                                                   " help buffer flag
 set statusline+=%w                                                                                   " preview window flag
 set statusline+=%m                                                                                   " modified flag
@@ -127,7 +126,7 @@ inoremap <C-Enter> <Esc>a<CR><Esc>O
 let Tlist_Ctags_Cmd = '/usr/local/Cellar/ctags/5.8/bin/ctags'
 
 " Syntastic
-let g:syntastic_enable_signs = 1
+" let g:syntastic_enable_signs = 1
 
 " Map for hide search
 nmap <Leader>h :noh<CR>
