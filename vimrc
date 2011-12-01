@@ -76,8 +76,7 @@ let maplocalleader='-'
 colorscheme tubster
 
 " show hidden characters
-set nolist
-set listchars=tab:▸\ ,eol:¬
+set list listchars=tab:▸\ ,trail:·
 
 " highlight current line
 set cursorline
