@@ -95,12 +95,12 @@ autocmd FileType xhtml,xml so ~/.vim/bundle/html_autoclosetag/ftplugin/html_auto
 autocmd FileType java setlocal shiftwidth=4 tabstop=4
 autocmd FileType python setlocal shiftwidth=4 tabstop=4
 autocmd FileType yaml setlocal autoindent
-autocmd FileType xhtml,xml,html,eruby setlocal shiftwidth=2 tabstop=2 noexpandtab
+autocmd FileType xhtml,xml,html,eruby setlocal shiftwidth=2 tabstop=2 expandtab
 
 autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
 autocmd BufNewFile,BufRead *.erb setfiletype eruby
 autocmd BufNewFile,BufRead *.jss setfiletype css
-autocmd BufNewFile,BufRead Gemfile,*.prawn,config.ru setfiletype ruby
+autocmd BufNewFile,BufRead Gemfile,Guardfile,*.prawn,config.ru setfiletype ruby
 
 " auto clean Fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
