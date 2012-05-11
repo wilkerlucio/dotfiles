@@ -17,3 +17,4 @@ fun! s:Prefixr(b,e)
 endfun
 
 au FileType css com! -range Prefixr call s:Prefixr(<line1>, <line2>)
+au FileType scss com! -range Prefixr call s:Prefixr(<line1>, <line2>)
