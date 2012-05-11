@@ -115,8 +115,8 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
 " Code cleanup
-autocmd BufWritePre * :%s/\s\+$//e
-autocmd BufWritePre * :retab
+" autocmd BufWritePre * :%s/\\s\\+$//e
+" autocmd BufWritePre * :retab
 
 " Mapping <C-Enter>
 inoremap <C-Enter> <Esc>a<CR><Esc>O
