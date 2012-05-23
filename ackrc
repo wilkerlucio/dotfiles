@@ -1,0 +1,7 @@
+--smart-case
+--type-add=css=.scss
+--type-add=html=.html.erb
+--type-set=erb=.erb
+--type-set=cs=.coffee
+--type-set=scss=.scss
+--type-set=sass=.scss,.sass
