@@ -5,3 +5,4 @@
 --type-set=cs=.coffee
 --type-set=scss=.scss
 --type-set=sass=.scss,.sass
+--ignore-dir=compiled
