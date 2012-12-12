@@ -131,6 +131,9 @@ let Tlist_Ctags_Cmd = '/usr/local/Cellar/ctags/5.8/bin/ctags'
 nmap <Leader>h :noh<CR>
 vmap <Leader>h :noh<CR>
 
+" Map for remove trailing spaces
+nmap <Leader>s :%s/\\s\\+$//e<CR>
+
 " Map for CommandT
 nmap <Leader>t :CommandT<CR>
 vmap <Leader>t :CommandT<CR>
