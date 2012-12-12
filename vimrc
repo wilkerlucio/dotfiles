@@ -132,7 +132,7 @@ nmap <Leader>h :noh<CR>
 vmap <Leader>h :noh<CR>
 
 " Map for remove trailing spaces
-nmap <Leader>s :%s/\\s\\+$//e<CR>
+nmap <Leader>s :%s/\s\+$//e<CR>
 
 " Map for CommandT
 nmap <Leader>t :CommandT<CR>
