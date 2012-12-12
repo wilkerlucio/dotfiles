@@ -73,7 +73,7 @@ let mapleader=','
 let maplocalleader='-'
 
 " set color scheme
-colorscheme tubster
+colorscheme Tomorrow-Night
 
 " show hidden characters
 set list listchars=tab:▸\ ,trail:·
