@@ -5,6 +5,7 @@ alias ea="$EDITOR ~/dotfiles/bash/aliases && reload" # Edit aliases
 alias ee="$EDITOR ~/dotfiles/bash/env"
 alias mg="mate . && gitx"
 alias yta="youtube-dl -t --extract-audio --audio-format=mp3"
+alias freedns="sudo killall -HUP mDNSResponder"
 function d { cd ~/Development/$1; }
 
 # Tar

@@ -1,12 +1,43 @@
 set nocompatible                            " Must come first because it changes other options.
-autocmd BufWritePost .vimrc source ~/.vimrc " Reload vim configuration automatic
+filetype off
 
-silent! call pathogen#runtime_append_all_bundles()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-rake'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'godlygeek/tabular'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'avakhov/vim-yaml'
+Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'rking/ag.vim'
+Bundle 'skalnik/vim-vroom'
+Bundle 'scrooloose/syntastic'
+Bundle 'Raimondi/delimitMate'
+Bundle 'wojtekmach/vim-rename'
+Bundle 'tComment'
+
+filetype plugin indent on
+
+set shell=/bin/sh
+
+runtime macros/matchit.vim                   " Enable ruby do/end matching
 
 syntax enable                                " Turn on syntax highlighting.
 filetype plugin indent on                    " Turn on file type detection.
-
-runtime macros/matchit.vim                   " Load the matchit plugin.
 
 set showcmd                                  " Display incomplete commands.
 set showmode                                 " Display the mode you're in.
@@ -16,7 +47,8 @@ set backspace=indent,eol,start               " Intuitive backspacing.
 set hidden                                   " Handle multiple buffers better.
 
 set wildmenu                                 " Enhanced command line completion.
-set wildmode=list:longest                    " Complete files like a shell.
+" set wildmode=list:longest                    " Complete files like a shell.
+set wildmode=full                    " Complete files like a shell.
 
 set ignorecase                               " Case-insensitive searching.
 set smartcase                                " But case-sensitive if expression contains a capital letter.
@@ -54,6 +86,8 @@ set expandtab                                " Use spaces instead of tabs
 
 set laststatus=2                             " Show the status line all the time
 
+set colorcolumn=80                           " show column at 80 chars
+
 " Useful status information at bottom of screen
 set statusline=[%n]                                                                                  " buffer number
 set statusline+=\ %<%.99f\                                                                           " file name
@@ -62,9 +96,12 @@ set statusline+=%w                                                              
 set statusline+=%m                                                                                   " modified flag
 set statusline+=%r                                                                                   " read-only flag
 set statusline+=%y                                                                                   " file type
-set statusline+=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\"} "file encoding
+set statusline+=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\"} " file encoding
 set statusline+=%{fugitive#statusline()}                                                             " fugitive info, for repository information
 set statusline+=%=                                                                                   " start right section
+set statusline+=%#warningmsg#                                                                        " syntastic warning message
+set statusline+=%{SyntasticStatuslineFlag()}                                                         " syntastic status flag
+set statusline+=%*                                                                                   " syntastic something
 set statusline+=%-16(\ %l,%c-%v\ %)                                                                  " cursor position
 set statusline+=%P                                                                                   " scroll percentual
 
@@ -80,9 +117,6 @@ set list listchars=tab:▸\ ,trail:·
 
 " highlight current line
 set cursorline
-
-" CoffeeScript configuration
-let coffee_no_trailing_space_error = 1
 
 " Controversial...swap colon and semicolon for easier commands
 nnoremap ; :
@@ -100,54 +134,49 @@ autocmd FileType xhtml,xml,html,eruby setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
 autocmd BufNewFile,BufRead *.erb setfiletype eruby
 autocmd BufNewFile,BufRead *.jss setfiletype css
+autocmd BufNewFile,BufRead *.json setfiletype javascript
 autocmd BufNewFile,BufRead Gemfile,Guardfile,*.prawn,config.ru setfiletype ruby
+
+" Source the vimrc file after saving it
+autocmd bufwritepost .vimrc source $MYVIMRC
 
 " auto clean Fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
-" Configuring tabs for file types
-" autocmd FileType html setlocal noexpandtab
-" autocmd FileType eruby setlocal noexpandtab
-" autocmd FileType javascript setlocal noexpandtab
-" autocmd FileType php setlocal noexpandtab
-
-" For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
-" autocmd BufNewFile,BufRead *_spec.rb compiler rspec
-
 " Code cleanup
-" autocmd BufWritePre * :%s/\\s\\+$//e
-" autocmd BufWritePre * :retab
+autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :retab
 
 " Mapping <C-Enter>
-inoremap <C-Enter> <Esc>a<CR><Esc>O
-
-" Taglist configuration
-let Tlist_Ctags_Cmd = '/usr/local/Cellar/ctags/5.8/bin/ctags'
-
-" Syntastic
-" let g:syntastic_enable_signs = 1
+" inoremap <C-Enter> <Esc>a<CR><Esc>O
+nmap <Leader>s *:%s//
 
 " Map for hide search
 nmap <Leader>h :noh<CR>
 vmap <Leader>h :noh<CR>
 
-" Map for remove trailing spaces
-nmap <Leader>s :%s/\s\+$//e<CR>
+" CtrlP
+nmap <Leader>f :CtrlPClearAllCaches<CR>
+nmap <Leader>b :CtrlPBuffer<CR>
 
-" Map for CommandT
-nmap <Leader>t :CommandT<CR>
-vmap <Leader>t :CommandT<CR>
-nmap <Leader>f :CommandTFlush<CR>
-vmap <Leader>f :CommandTFlush<CR>
-nmap <Leader>b ;CommandTBuffer<CR>
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.git|\.hg|\.svn|spec[\/]cassettes|tmp)$',
+  \ 'file': '\v\.(DS_Store)$',
+  \ }
 
-" ACP configuration
-let g:acp_behaviorRubyOmniMethodLength = -1
-let g:acp_behaviorRubyOmniSymbolLength = -1
-let g:acp_behaviorPythonOmniLength     = -1
-let g:acp_behaviorPerlOmniLength       = -1
-let g:acp_behaviorXmlOmniLength        = -1
-let g:acp_behaviorHtmlOmniLength       = -1
+" Gist
+let g:gist_clip_command = 'pbcopy'
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
+
+" Syntastic
+let g:syntastic_auto_jump=1
+
+" VRoom
+let g:vroom_test_unit_command = 'ruby -Itest -Ilib '
+
+" YCM
+let g:ycm_collect_identifiers_from_comments_and_strings=1
 
 " Tabularize
 nmap <Leader>a= :Tabularize /=<CR>
@@ -158,22 +187,3 @@ nmap <Leader>a: :Tabularize /:\zs/l0l1<CR>
 vmap <Leader>a: :Tabularize /:\zs/l0l1<CR>
 nmap <Leader>a, :Tabularize /,\zs/l0l1<CR>
 vmap <Leader>a, :Tabularize /,\zs/l0l1<CR>
-
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
-
-" Bubbling text
-nmap <C-Up> [e
-nmap <C-Down> ]e
-vmap <C-Up> [egv
-vmap <C-Down> ]egv

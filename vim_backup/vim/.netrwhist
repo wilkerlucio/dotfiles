@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/wilkerlucio/.vim'
+let g:netrw_dirhist_2='/Users/wilkerlucio/.oh-my-zsh'
+let g:netrw_dirhist_3='/Users/wilkerlucio/.rvm/gems/ruby-1.9.3-p194@rentwb/gems/nyan-cat-formatter-0.2.0'
+let g:netrw_dirhist_4='/Users/wilkerlucio/.tmux'
+let g:netrw_dirhist_5='/Users/wilkerlucio/.rvm/gems/ruby-1.9.3-p194@rentwb/gems/will_paginate-3.0.3'
+let g:netrw_dirhist_6='/Users/wilkerlucio/.rvm/gems/ruby-2.0.0-p0/gems/guard-1.6.2'
+let g:netrw_dirhist_7='/Users/wilkerlucio/.irb'
+let g:netrw_dirhist_8='/Users/wilkerlucio/.rvm/gems/ruby-1.9.3-p194@rentwb/gems/capybara-1.1.2'
