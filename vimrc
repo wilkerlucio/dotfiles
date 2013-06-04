@@ -5,6 +5,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-endwise'
@@ -14,6 +15,8 @@ Bundle 'tpope/vim-rails.git'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-unimpaired'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'godlygeek/tabular'
@@ -28,6 +31,9 @@ Bundle 'skalnik/vim-vroom'
 Bundle 'scrooloose/syntastic'
 Bundle 'Raimondi/delimitMate'
 Bundle 'wojtekmach/vim-rename'
+Bundle 'vim-scripts/argtextobj.vim'
+Bundle 'michaeljsmith/vim-indent-object'
+Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'tComment'
 
 filetype plugin indent on
@@ -130,6 +136,7 @@ autocmd FileType java setlocal shiftwidth=4 tabstop=4
 autocmd FileType python setlocal shiftwidth=4 tabstop=4
 autocmd FileType yaml setlocal autoindent
 autocmd FileType xhtml,xml,html,eruby setlocal shiftwidth=2 tabstop=2 expandtab
+autocmd FileType php setlocal shiftwidth=2 tabstop=2 expandtab smartindent
 
 autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
 autocmd BufNewFile,BufRead *.erb setfiletype eruby
@@ -147,9 +154,8 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre * :retab
 
-" Mapping <C-Enter>
-" inoremap <C-Enter> <Esc>a<CR><Esc>O
-nmap <Leader>s *:%s//
+" Substitute command
+" nmap <Leader>s *:%s//
 
 " Map for hide search
 nmap <Leader>h :noh<CR>
@@ -187,3 +193,9 @@ nmap <Leader>a: :Tabularize /:\zs/l0l1<CR>
 vmap <Leader>a: :Tabularize /:\zs/l0l1<CR>
 nmap <Leader>a, :Tabularize /,\zs/l0l1<CR>
 vmap <Leader>a, :Tabularize /,\zs/l0l1<CR>
+
+map <Leader>c "+
+
+vmap s S
+
+inoremap <C-Return> <CR><Esc>ko
